@@ -250,7 +250,11 @@ a:not(#theme-toggle):not(.theme-toggle):hover {
 /* Navigation buttons 25% bigger */
 .menu a,
 .lang-switch a {
-  font-size: 1.25em;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  
 }
 
 /* Unified post entry card styling - REMOVED BORDERS AND BACKGROUNDS */
@@ -472,7 +476,7 @@ body::before {
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   margin-bottom: 2rem;
-  margin-top: -2rem;
+  margin-top: 0rem;
 }
 
 /* PaperMod cover image styling - match homepage banner */
@@ -483,7 +487,7 @@ body::before {
   margin-left: calc(-50vw + 50%) !important;
   margin-right: calc(-50vw + 50%) !important;
   margin-bottom: 2rem !important;
-  margin-top: -2rem !important; /* Changed from 0 to -2rem to match homepage */
+  margin-top: -1.4rem !important; /* Changed from 0 to -2rem to match homepage */
   padding: 0 !important;
 }
 
