@@ -7,11 +7,15 @@
 <meta name="robots" content="noindex, nofollow">
 <title>the project | irreconcilable</title>
 <meta name="keywords" content="">
-<meta name="description" content="This is the final blog project.
-Built by James Cody Phelan.">
+<meta name="description" content="Ten pieces of writing on a theme.
+irreconcilable
+adjective
+/ˌɪr.ek.ənˈsaɪ.lə.bəl/
+impossible to make consistent or congruous
+irreconcilable is a project about the gaps between the way things are and the way we want them to be: the unresolved desires that stick to us as nagging discomforts.">
 <meta name="author" content="James Cody Phelan">
 <link rel="canonical" href="http://localhost:1313/irreconcilable/the-project/">
-<link crossorigin="anonymous" href="/irreconcilable/assets/css/stylesheet.b45852844f8dd895ceeb7df95354ab6b9258c0046c7b1a3b05ff2983f397cdd6.css" integrity="sha256-tFhShE&#43;N2JXO6335U1Sra5JYwARsexo7Bf8pg/OXzdY=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/irreconcilable/assets/css/stylesheet.99af7c137b43a97583f564459b3c1b4673e56638b8517847aaf8b59383e3a6f6.css" integrity="sha256-ma98E3tDqXWD9WRFmzwbRnPlZji4UXhHqvi1k4PjpvY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/irreconcilable/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/irreconcilable/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/irreconcilable/favicon-32x32.png">
@@ -72,11 +76,6 @@ Built by James Cody Phelan.">
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/irreconcilable/archive/" title="archive">
-                    <span>archive</span>
-                </a>
-            </li>
-            <li>
                 <a href="http://localhost:1313/irreconcilable/the-project/" title="the project">
                     <span class="active">the project</span>
                 </a>
@@ -96,8 +95,12 @@ Built by James Cody Phelan.">
 
 </div>
   </header> 
-  <div class="post-content"><p>This is the final blog project.</p>
-<p>Built by James Cody Phelan.</p>
+  <div class="post-content"><p>Ten pieces of writing on a theme.</p>
+<p><em>irreconcilable</em><br>
+adjective<br>
+/ˌɪr.ek.ənˈsaɪ.lə.bəl/<br>
+impossible to make consistent or congruous</p>
+<p><a href="http://localhost:1313/irreconcilable">irreconcilable</a> is a project about the gaps between the way things are and the way we want them to be: the unresolved desires that stick to us as nagging discomforts.</p>
 
 
   </div>
@@ -112,20 +115,104 @@ Built by James Cody Phelan.">
 <footer class="footer">
         <span>&copy; 2026 <a href="http://localhost:1313/irreconcilable/">irreconcilable</a></span> · 
 
+     · 
     <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span> · 
-    <span>
-        Site code written with <a href="https://claude.ai/" rel="noopener noreferrer" target="_blank">Claude Sonnet 4.5</a>
+        
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />
     </svg>
-</a>
+</a><style>
+  .post-content p {
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .post-content p.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.post-content p').forEach(p => {
+    observer.observe(p);
+  });
+</script>
+
+<style>
+  .cover-title-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: 'Lora', serif;
+    font-size: 7em;
+    font-weight: 700;
+    text-align: center;
+     
+    pointer-events: none;
+    z-index: 10;
+    width: 90%;
+  }
+</style>
+
+<script>
+  const cover = document.querySelector('.post-single .entry-cover');
+  const title = document.querySelector('.post-single .post-title');
+  if (cover && title) {
+    cover.style.position = 'relative';
+    const overlay = document.createElement('div');
+    overlay.classList.add('cover-title-overlay');
+    overlay.textContent = title.textContent.trim();
+    cover.appendChild(overlay);
+  }
+</script>
+
+<style>
+  #reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #2c3e50;
+    z-index: 9999;
+    transition: width 0.1s ease;
+  }
+
+  [data-theme="dark"] #reading-progress {
+    background-color: #f5f5dc;
+  }
+</style>
+
+<script>
+  const bar = document.createElement('div');
+  bar.id = 'reading-progress';
+  document.body.prepend(bar);
+
+  const content = document.querySelector('.post-content');
+  if (content) {
+    window.addEventListener('scroll', () => {
+      const contentTop = content.offsetTop;
+      const contentHeight = content.offsetHeight;
+      const scrolled = window.scrollY - contentTop;
+      const percent = Math.min(100, Math.max(0, (scrolled / contentHeight) * 100));
+      bar.style.width = percent + '%';
+    });
+  }
+</script>
 
 <script>
     let menu = document.getElementById('menu');

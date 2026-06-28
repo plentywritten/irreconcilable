@@ -73,6 +73,14 @@ header {
   color: var(--primary);
 }
 
+/*Menu height*/
+:root {
+  --header-height: 40px;
+}
+header.header {
+  background-color: rgba(245, 245, 220, 0.6) !important; /* adjust 0.8 to taste */
+}
+
 /* Make homepage content area transparent to show background image */
 .list .main,
 .list article {
@@ -88,6 +96,32 @@ header {
   background-repeat: no-repeat;
 }
 
+body:has(span.active)::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  z-index: 0;
+  pointer-events: none;
+}
+
+body:has(span.active) {
+  background-image: url('/irreconcilable/images/bbland.jpg') !important;
+  background-size: cover;
+  background-position: 50% 10%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+body:has(span.active) article,
+body:has(span.active) .main,
+body:has(span.active) .post-header {
+  background-color: transparent !important;
+}
+
 /* Make bg-image page content transparent*/
 .bg-image .main,
 .bg-image article,
@@ -101,6 +135,9 @@ header {
 [data-theme="dark"] .list,
 [data-theme="dark"] article,
 [data-theme="dark"] .page-header,
+[data-theme="dark"] header.header {
+  background-color: rgba(26, 26, 26, 0.6) !important;
+}
 [data-theme="dark"] header {
   background-color: #1a1a1a !important;
   color: #f5f5dc;
@@ -141,14 +178,14 @@ header {
   color: #ffffff !important;
 }
 
-/* Dark mode post entry titles on homepage */
+/* Dark mode post entry titles on homepage 
 [data-theme="dark"] .post-entry .entry-header h2,
 [data-theme="dark"] .post-entry-header h2,
 [data-theme="dark"] .entry-title,
 [data-theme="dark"] .post-entry h2,
 [data-theme="dark"] .post-entry h2 a {
-  color: #f5f5dc !important;
-}
+  color: #2c3e50 !important;
+}*/
 
 /* Dark mode general text elements */
 [data-theme="dark"] p,
@@ -483,13 +520,22 @@ article.post-single .post-footer {
 
 /* Title alignment control - default is left aligned */
 .post-single .post-title {
-  text-align: left;
+  text-align: left !important;
 }
 
 /* Add these classes to your front matter to change alignment:
    Use: class: "title-center" or class: "title-right" in front matter */
 .title-center .post-title {
   text-align: center !important;
+}
+
+h1.entry-hint-parent {
+  display: block !important;
+}
+
+article.post-single .post-header {
+  width: 100% !important;
+  align-self: flex-start !important;
 }
 
 .title-right .post-title {
