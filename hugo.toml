@@ -7,7 +7,7 @@ theme = "PaperMod"
   description = "a writing project about the gaps between"
   author = "James Cody Phelan"
   
-  defaultTheme = "light"  # Changed to light since your CSS defaults to light
+  defaultTheme = "dark"  # Changed to light since your CSS defaults to light
   ShowReadingTime = false  # You hid this anyway
   ShowShareButtons = false  # You hid this anyway
   ShowPostNavLinks = false
